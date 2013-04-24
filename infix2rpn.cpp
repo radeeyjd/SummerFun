@@ -14,7 +14,15 @@ int main()
 	cin >> s_expression;
 	cout << infix2RPN(s_expression);
 }
-
+/*Stack Infix expression to postfix expressio*/
+/**********
+Case '(' -- Push
+Case ')' -- Pop operators until '(' encountered
+Case '+,-,*,/' 
+	1. empty stack || higher priority push the element
+	2. Pop and display until becomes higher priority/ empty
+Case 'Values' -- redirect to stream
+***********/
 string infix2RPN(string s_exp)
 {
 	char token
