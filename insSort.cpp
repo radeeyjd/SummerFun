@@ -2,19 +2,16 @@
 #include <vector>
 using namespace std;
 
-void selectionSort(vector<int> x) {
-	int smallpos, smallest;
-	for(int i = 0; i < x.size() - 1; i++) {
-		smallpos = i;
-		smallest = x[i];
-		for (int j = i + 1; j < x.size(); j++) {
-			if(x[j] < smallest) {
-				smallest = x[j];
-				smallpos = j;
-			}
+void insertionSort(vector<int> x) {
+	int key;
+	for(int i = 1; i < x.size(); ++i) {
+		key = x[i];
+		int j ;
+		for(j = i;(key < x[j-1]) && (j > 0); --j)
+		{	
+			x[j] = x[j-1];
 		}
-		x[smallpos] = x[i];
-		x[i] = smallest;
+		x[j] = key;
 	}
 	for(int i = 0; i < x.size(); i++)
 		cout << x[i] << " ";
@@ -25,8 +22,5 @@ int main() {
 	vector<int> v;
 	for(int i = 10; i > 0; i--)
 		v.push_back(i);
-	selectionSort(v);
-	for(int i = 0; i < v.size(); i++)
-		cout << v[i] << " ";
-	cout << endl;
+	insertionSort(v);
 }
